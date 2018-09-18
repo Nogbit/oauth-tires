@@ -42,7 +42,7 @@ For each vendor, make sure you create the following scopes as the code in this r
 ### Authlete
 1. Research stopped, [their token request endpoint](https://docs.authlete.com/#token-endpoint) does not support JWS/JWT authentication for Client.
 ### Apigee
-1. It appears that [RFC 7523 is somewhat supported](https://community.apigee.com/articles/35738/rfc7523-in-apigee-edge-exchanging-jwt-for-opaque-o.html). However, that flow is only used to exchange a JWT for an opaque token to then be used to get an access token.  Apparently they don't or can't deal the the computation overhead that comes with using JWT's. 
+1. It appears that [RFC 7523 is somewhat supported](https://community.apigee.com/articles/35738/rfc7523-in-apigee-edge-exchanging-jwt-for-opaque-o.html). However, it is used to exchange a JWT for an opaque token which is the access token.  Apparently they don't or can't deal the the computation overhead that comes with using JWT's within their infrastructure at resource owner endpoints. 
 
 ## Client Setup
 This should be a simple Python app that does the following. It should log outputat each step.
@@ -79,4 +79,4 @@ Research into using Okta has been put on hold due to it's inability to use a JWS
 Research into using Authlete has been put on hold for the same reason as Okta.
 
 ## Apigee - 09/18/2018
-Research into using Apigee has been put on hold since they do not support RFC 7523 at the access token request endpoint.  Instead, if the client wanted to assert their idenetity with a JWT, that client must excange the JWT for an opaque token to then use at the access token request endpoint. This is extra steps I'm not interested in exploring right now.
+Research into using Apigee has been put on hold since their support of RFC 7523 at the access token request endpoint is limited to token exchange for an opaque token.  If your resource server wants or needs to use claims in the access token then back channel introspection will be required when instead a JWT access token could of sufficed.
