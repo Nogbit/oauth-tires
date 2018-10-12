@@ -79,4 +79,4 @@ Research into using Okta has been put on hold due to it's inability to use a JWS
 Research into using Authlete has been put on hold for the same reason as Okta.
 
 ## Apigee - 09/18/2018
-Research into using Apigee has been put on hold since their support of RFC 7523 at the access token request endpoint is limited to token exchange for an opaque token.  If your resource server wants or needs to use claims in the access token then back channel introspection will be required when instead a JWT access token could of sufficed.
+Research into using Apigee has been put on hold since their support of RFC 7523 at the access token request endpoint is limited to token exchange for an opaque token.  If your resource server wants or needs to use claims in the access token then back channel introspection will be required when instead a JWT access token could of sufficed..
